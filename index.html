@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="./weath.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <form class="search-weather-form">
+        <h2>Simple Weather</h2>
+        <input type="search" placeholder="Search for a city" name="weather" />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="container">
+        <img src="" alt="" srcset="" id="weather-icon" />
+        <div id="location">Unable to fetch weather</div>
+        <div class="desc">No information available</div>
+        <div class="weather-section">
+          <div class="cel">Error</div>
+          <div class="temp"></div>
+          <div class="far">Error</div>
+        </div>
+        <div class="weather-info">
+          <h3>Sunrise: <span class="sunrise">Unavailable</span></h3>
+          <h3>Sunset: <span class="sunset">Unavailable</span></h3>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./app.js" type="module"></script>
+</html>
