@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="./weath.css" />
   </head>
   <body>
     <div id="main-container">
       <form class="search-weather-form">
-        <h2>Simple Weather</h2>
         <input type="search" placeholder="Search for a city" name="weather" />
+        <button>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
         <button type="submit">Submit</button>
       </form>
       <div class="container">
@@ -30,5 +37,5 @@
       </div>
     </div>
   </body>
-  <script src="./app.js" type="module"></script>
+  <script src="./app.js"></script>
 </html>
