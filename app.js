@@ -6,6 +6,8 @@ const desc = document.querySelector(".desc");
 const celsius = document.querySelector(".cel");
 const toggle = document.querySelector(".temp");
 const farenheit = document.querySelector(".far");
+const humi = document.querySelector(".humid");
+const wind = document.querySelector(".speed");
 const sunRs = document.querySelector(".sunrise");
 const sunSt = document.querySelector(".sunset");
 
@@ -19,7 +21,6 @@ window.addEventListener("load", () => {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api}&units=metric`;
-      console.log(url);
       fetch(url)
         .then((response) => {
           return response.json();
@@ -27,9 +28,11 @@ window.addEventListener("load", () => {
         .then((data) => {
           const { sunrise, sunset } = data.sys;
           const { temp } = data.main;
+          const { humidity } = data.main;
           const { description, icon } = data.weather[0];
-          console.log(description, icon);
+          // console.log(description, icon);
           const place = data.name;
+          const { speed } = data.wind;
 
           const weatherUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
           const far = (temp * 9) / 5 + 32;
@@ -39,10 +42,12 @@ window.addEventListener("load", () => {
           const sunsetGMT = new Date(sunset * 1000);
 
           weatherIcon.src = weatherUrl;
-          loca.textContent = `${place}`;
+          loca.textContent = `Weather in: ${place}`;
           desc.textContent = `${description}`;
           celsius.textContent = `${temp.toFixed(2)}°C`;
           farenheit.textContent = `${far.toFixed(2)}°F`;
+          humi.textContent = `${humidity}%`;
+          wind.textContent = `${speed}km/hr`;
           sunRs.textContent = `${sunriseGMT.toLocaleDateString()}, ${sunriseGMT.toLocaleTimeString()}`;
           sunSt.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
         });
